@@ -7,7 +7,7 @@ const nextConfig: NextConfig = {
       {
         source: "/ig",
         destination:
-          "https://cimbre.com.br/lp-1?utm_source=instagram&utm_medium=social&utm_campaign=bio",
+          "https://cimbre.com.br/?utm_source=instagram&utm_medium=social&utm_campaign=bio",
         permanent: false,
       },
       // --- Fim dos slugs curtos ---
