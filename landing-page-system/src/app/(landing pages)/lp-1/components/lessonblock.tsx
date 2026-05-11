@@ -1,6 +1,6 @@
-import LessonsTitle from "../components/lessonstitle";
-import TextWrapper from "../components/textwrapper";
-import BaseContent from "../components/paragraph";
+import LessonsTitle from "./lessonstitle";
+import TextWrapper from "./textwrapper";
+import BaseContent from "./paragraph";
 
 type LessonBlockProps = {
   lessonName: string;
