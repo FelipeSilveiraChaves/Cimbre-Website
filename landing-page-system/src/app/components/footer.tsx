@@ -38,12 +38,6 @@ export default function Footer({ variant = "light" }: FooterProps) {
           Políticas de privacidade
         </Link>{" "}
         |{" "}
-        <Link
-          className={isDark ? "hover:text-[#0D99FF]" : "hover:text-carbon-600"}
-          href="/contact"
-        >
-          Contato
-        </Link>
       </p>
     </div>
   );
