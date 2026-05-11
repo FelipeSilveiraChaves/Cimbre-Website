@@ -36,8 +36,7 @@ export default function Footer({ variant = "light" }: FooterProps) {
           href="/policy"
         >
           Políticas de privacidade
-        </Link>{" "}
-        |{" "}
+        </Link>
       </p>
     </div>
   );
