@@ -28,14 +28,14 @@ export default function Footer({ variant = "light" }: FooterProps) {
           className={isDark ? "hover:text-[#0D99FF]" : "hover:text-carbon-600"}
           href="/terms"
         >
-          Termos de uso
+          Termos de Uso
         </Link>{" "}
         |{" "}
         <Link
           className={isDark ? "hover:text-[#0D99FF]" : "hover:text-carbon-600"}
           href="/policy"
         >
-          Políticas de privacidade
+          Política de Privacidade
         </Link>{" "}
         |{" "}
         <Link

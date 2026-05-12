@@ -6,47 +6,58 @@ export default function TermsOfUse() {
           Termos de uso
         </h1>
         <h3 className="text-carbon-400 text-[22px] sm:text-2xl/[32px]">
-          Atualizado em 6 de dezembro de 2025
+          Atualizado em 12 de dezembro de 2026
         </h3>
 
         <div className="text-carbon-800 mt-10 flex flex-col gap-[29.2px] text-xl/[29.2px]">
           <p>
             Os presentes Termos de Uso regulam o acesso e a utilização do site
-            www.cimbre.com.br, mantido pela Interception Digital LTDA. Ao
+            www.cimbre.com.br, mantido pela Interception Digital LTDA, inscrita
+            no CNPJ sob nº 49.821.411/0001-37, com sede em Rio Grande/RS. Ao
             navegar pelo site, o usuário concorda com as condições estabelecidas
             neste documento. Caso não concorde com algum dos termos,
             recomenda-se interromper o uso do site.
           </p>
           <p>
             Este site tem finalidade informativa e comercial, apresentando
-            conteúdos relacionados à organização pessoal e divulgação de
-            produtos digitais da Pálaga. Todo o conteúdo publicado, incluindo
-            textos, imagens, gráficos, vídeos, identidade visual, materiais de
-            apoio e quaisquer outros elementos criativos, é protegido por
-            direitos autorais e não pode ser reproduzido, distribuído, copiado
-            ou utilizado para fins comerciais sem autorização expressa da
-            Interception Digital LTDA. O uso indevido de qualquer material
-            disponibilizado poderá resultar em responsabilização civil e/ou
-            penal conforme a legislação vigente.
+            conteúdos relacionados à organização pessoal e divulgando produtos
+            digitais da marca Cimbre, pertencente à Interception Digital LTDA.
+            Todo o conteúdo publicado, incluindo textos, imagens, gráficos,
+            vídeos, identidade visual, materiais de apoio e quaisquer outros
+            elementos criativos, é protegido por direitos autorais e não pode
+            ser reproduzido, distribuído, copiado ou utilizado para fins
+            comerciais sem autorização expressa da Interception Digital LTDA. O
+            uso indevido de qualquer material disponibilizado poderá resultar em
+            responsabilização civil e/ou penal conforme a legislação vigente.
           </p>
           <p>
-            Os produtos digitais divulgados no site são comercializados
-            exclusivamente por meio de plataformas externas, como a Hubla ou
-            outras plataformas eventualmente utilizadas no futuro. O processo de
-            compra, pagamento, entrega do produto e suporte pós-compra ocorre
-            integralmente nessas plataformas, sendo elas responsáveis pelos
-            procedimentos e políticas relacionadas às transações. As informações
-            aqui disponibilizadas sobre produtos, preços, benefícios ou
-            conteúdos podem ser alteradas a qualquer momento, sem aviso prévio,
-            conforme a necessidade de atualização ou estratégia comercial.
+            Os produtos digitais divulgados no site podem ser comercializados
+            por meio de plataformas externas, como a Hubla ou outras plataformas
+            eventualmente utilizadas. Nesses casos, o processo de compra,
+            pagamento e entrega seguirá os termos, políticas e procedimentos da
+            respectiva plataforma. A Cimbre também poderá disponibilizar canais
+            próprios de atendimento para dúvidas relacionadas aos conteúdos,
+            produtos digitais, acesso ao material e demais informações
+            apresentadas no site.
           </p>
           <p>
-            O usuário compreende que o site pode utilizar cookies, pixels e
-            tecnologias semelhantes para aprimorar a experiência de navegação,
-            melhorar o desempenho, personalizar conteúdos e otimizar campanhas
-            publicitárias. O uso contínuo do site caracteriza concordância com a
-            utilização dessas tecnologias, conforme esclarecido em nossa
-            Política de Privacidade.
+            As informações disponibilizadas no site sobre produtos, preços,
+            benefícios, conteúdos ou condições comerciais podem ser alteradas a
+            qualquer momento, sem aviso prévio, conforme a necessidade de
+            atualização, disponibilidade dos produtos ou estratégia comercial.
+          </p>
+          <p>
+            O site pode utilizar cookies, pixels e tecnologias semelhantes para
+            aprimorar a experiência de navegação, analisar desempenho,
+            personalizar conteúdos e otimizar campanhas publicitárias, conforme
+            descrito em nossa{" "}
+            <a
+              href="/policy"
+              className="decoration-carbon-200 underline underline-offset-4 transition-colors hover:text-[#0D99FF]"
+            >
+              Política de Privacidade
+            </a>
+            .
           </p>
           <p>
             Links externos podem ser disponibilizados em diversas áreas do site,
@@ -77,8 +88,16 @@ export default function TermsOfUse() {
           <p>
             Em caso de dúvidas sobre este documento ou sobre qualquer aspecto
             relacionado ao uso do site, o usuário pode entrar em contato pelo
-            e-mail contato@cimbre.com.br, onde prestaremos esclarecimentos
-            dentro de prazo razoável.
+            e-mail{" "}
+            <a
+              href="mailto:contato@cimbre.com.br"
+              aria-label="Enviar e-mail para contato@cimbre.com.br"
+              className="decoration-carbon-200 underline underline-offset-4 transition-colors hover:text-[#0D99FF]"
+            >
+              contato@cimbre.com.br
+            </a>
+            . O atendimento é realizado em dias úteis, e as solicitações serão
+            respondidas assim que possível.
           </p>
         </div>
       </div>
