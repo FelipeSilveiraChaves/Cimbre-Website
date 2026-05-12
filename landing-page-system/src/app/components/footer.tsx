@@ -16,7 +16,7 @@ export default function Footer({ variant = "light" }: FooterProps) {
           isDark ? "text-[#F4F6F965]" : "text-carbon-400"
         }`}
       >
-        © 2025 Interception. Todos os direitos reservados.
+        © 2026 Interception. Todos os direitos reservados.
       </p>
 
       <p
@@ -36,6 +36,13 @@ export default function Footer({ variant = "light" }: FooterProps) {
           href="/policy"
         >
           Políticas de privacidade
+        </Link>{" "}
+        |{" "}
+        <Link
+          className={isDark ? "hover:text-[#0D99FF]" : "hover:text-carbon-600"}
+          href="/contact"
+        >
+          Contato
         </Link>
       </p>
     </div>
