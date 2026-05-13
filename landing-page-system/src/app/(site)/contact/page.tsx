@@ -47,7 +47,7 @@ export default function ContactPage() {
           <p className="text-carbon-600 text-lg">
             Para facilitar o atendimento, informe na sua mensagem: o{" "}
             <b>nome do produto </b> ou <b>aula</b> sobre a qual você está
-            falando; o<b>e-mail usado na compra ou cadastro</b>; e uma{" "}
+            falando; o<b> e-mail usado na compra ou cadastro</b>; e uma{" "}
             <b>breve descrição da sua dúvida.</b>
           </p>
           <p className="text-carbon-600 text-lg">
