@@ -41,14 +41,24 @@ export default function ContactPage() {
           </p>
 
           <p>
-            Nosso atendimento acontece em dias úteis. Respondemos assim que
-            possível.
+            Nosso atendimento acontece em dias úteis. Respondemos em até 2 dias
+            úteis.
           </p>
           <p className="text-carbon-600 text-lg">
             Para facilitar o atendimento, informe na sua mensagem: o{" "}
             <b>nome do produto </b> ou <b>aula</b> sobre a qual você está
             falando; o<b>e-mail usado na compra ou cadastro</b>; e uma{" "}
             <b>breve descrição da sua dúvida.</b>
+          </p>
+          <p className="text-carbon-600 text-lg">
+            Para solicitações de reembolso, informe o e-mail utilizado na
+            compra.{" "}
+            <b>
+              Os produtos digitais da Cimbre contam com garantia de 7 dias
+              corridos após a confirmação da compra.
+            </b>{" "}
+            Dentro desse prazo, o comprador pode solicitar o reembolso integral
+            do valor pago.
           </p>
         </div>
       </div>

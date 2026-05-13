@@ -6,7 +6,7 @@ export default function TermsOfUse() {
           Termos de uso
         </h1>
         <h3 className="text-carbon-400 text-[22px] sm:text-2xl/[32px]">
-          Atualizado em 12 de dezembro de 2026
+          Atualizado em 13 de maio de 2026
         </h3>
 
         <div className="text-carbon-800 mt-10 flex flex-col gap-[29.2px] text-xl/[29.2px]">
@@ -39,6 +39,24 @@ export default function TermsOfUse() {
             próprios de atendimento para dúvidas relacionadas aos conteúdos,
             produtos digitais, acesso ao material e demais informações
             apresentadas no site.
+          </p>
+          <p>
+            Os produtos digitais da Cimbre contam com garantia de 7 dias
+            corridos a partir da confirmação da compra. Durante esse prazo, o
+            comprador poderá solicitar o reembolso integral do valor pago, sem
+            necessidade de justificativa. A solicitação poderá ser realizada
+            pela plataforma utilizada na compra, como a Hubla, ou pelo e-mail{" "}
+            <a
+              href="mailto:contato@cimbre.com.br"
+              aria-label="Enviar e-mail para contato@cimbre.com.br"
+              className="decoration-carbon-200 underline underline-offset-4 transition-colors hover:text-[#0D99FF]"
+            >
+              contato@cimbre.com.br
+            </a>
+            , informando o e-mail utilizado no momento da compra. Após a
+            aprovação do reembolso, o acesso ao produto digital poderá ser
+            cancelado. O prazo para estorno poderá variar conforme o meio de
+            pagamento e os procedimentos da plataforma utilizada.
           </p>
           <p>
             As informações disponibilizadas no site sobre produtos, preços,

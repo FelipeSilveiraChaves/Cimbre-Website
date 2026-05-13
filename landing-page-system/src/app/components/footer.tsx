@@ -9,14 +9,21 @@ export default function Footer({ variant = "light" }: FooterProps) {
 
   return (
     <div
-      className={`flex w-full max-w-screen flex-col justify-start overflow-hidden pt-12 pb-4 pl-8 sm:justify-center sm:pt-16 sm:pl-0 sm:text-center ${isDark ? "bg-[#0F192F]" : "bg-[#F8FCFF]"}`}
+      className={`flex w-full max-w-screen flex-col justify-start overflow-hidden pt-12 pb-18 pl-8 sm:justify-center sm:pt-16 sm:pb-4 sm:pl-0 sm:text-center ${isDark ? "bg-[#0F192F]" : "bg-[#F8FCFF]"}`}
     >
       <p
-        className={`text-base/[20px] ${
+        className={`mb-0.5 text-base/[20px] ${
           isDark ? "text-[#F4F6F965]" : "text-carbon-400"
         }`}
       >
-        © 2026 Interception. Todos os direitos reservados.
+        © 2026 Cimbre. Todos os direitos reservados.
+      </p>
+      <p
+        className={`mb-0.5 text-base/[20px] ${
+          isDark ? "text-[#F4F6F965]" : "text-carbon-400"
+        }`}
+      >
+        Um produto Interception Digital LTDA.
       </p>
 
       <p

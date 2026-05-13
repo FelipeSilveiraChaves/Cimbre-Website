@@ -6,7 +6,7 @@ export default function PrivacyPolicy() {
           Política de Privacidade
         </h1>
         <h3 className="text-carbon-400 text-[22px] sm:text-2xl/[32px]">
-          Atualizado em 12 de dezembro de 2026
+          Atualizado em 6 de maio de 2026
         </h3>
 
         <div className="text-carbon-800 mt-10 flex flex-col gap-[29.2px] text-xl/[29.2px]">
