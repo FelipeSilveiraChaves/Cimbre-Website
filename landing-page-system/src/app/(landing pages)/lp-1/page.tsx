@@ -7,7 +7,7 @@ import { Title } from "./components/title";
 import LessonBlock from "./components/lessonblock";
 import CallToAction from "../../components/calltoaction";
 import FAQCard from "../../components/FAQ";
-import AgendaCompareSlider from "./components/AgendaCompareSliderLazy";
+
 import Image from "next/image";
 
 export default function LandingPageOne() {
@@ -62,7 +62,7 @@ export default function LandingPageOne() {
             alt="Métodos de produtividade"
             width={356}
             height={224}
-            className="h-auto w-full max-w-[500px] rounded-2xl border border-[#DDE3EA] shadow-sm"
+            className="h-auto w-full max-w-155 rounded-2xl border border-[#DDE3EA] shadow-sm"
             priority
           />
           <TextWrapper>
@@ -88,7 +88,19 @@ export default function LandingPageOne() {
               eficiente possível — e conseguimos!
             </BaseContent>
           </TextWrapper>
-          <div className="aspect-4/3 w-full max-w-187.5 rounded-2xl border border-blue-300 bg-[#F5F7FA]" />
+          <div className="flex w-full max-w-137.5 flex-col items-center justify-start rounded-2xl bg-[#FFFFFF] px-7 py-13.5 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)]">
+            <p className="text-[24px] leading-7 font-semibold text-[#202A40]">
+              Apenas 3 Ferramentas
+            </p>
+            <Image
+              src="/images/productivity-tools.png"
+              alt="Ferramentas de produtividade"
+              width={326}
+              height={180}
+              className="h-auto w-full max-w-100 rounded-2xl"
+              priority
+            />
+          </div>
           <TextWrapper>
             <BaseContent className="pt-7">
               No fim, percebemos que a solução não precisava ser complexa: um
@@ -102,7 +114,7 @@ export default function LandingPageOne() {
               Organizamos isso em <Badge label="5 Aulas" />
             </Title>
 
-            <BaseContent className="py-7">
+            <BaseContent className="pt-7">
               Para ensinar isso, organizamos tudo em 5 aulas direto ao ponto.
             </BaseContent>
             <BaseContent className="pt-7 pb-11">
@@ -112,7 +124,41 @@ export default function LandingPageOne() {
               semana e o dia sob controle.
             </BaseContent>
           </TextWrapper>
-          <div className="aspect-4/3 w-full max-w-187.5 rounded-2xl border border-blue-300 bg-[#F5F7FA]" />
+          <div className="p- flex aspect-4/3 w-full max-w-117.5 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)]">
+            <div className="flex w-full max-w-71 min-w-0 items-center justify-center gap-[2.8%]">
+              <div className="relative aspect-100/127 w-[35.2%] shrink-0">
+                <Image
+                  src="/images/notes-icon.png"
+                  alt="notes-icon"
+                  fill
+                  className="object-contain"
+                  sizes="100px"
+                />
+              </div>
+              <div className="flex w-[62%] min-w-0 items-center justify-center gap-[8%]">
+                <div className="relative aspect-42/19 w-[23.9%] shrink-0">
+                  <Image
+                    src="/images/arrow1.svg"
+                    alt="right arrow"
+                    fill
+                    className="object-contain"
+                    sizes="42px"
+                  />
+                </div>
+
+                <div className="relative aspect-120/50 w-[68.2%] shrink-0">
+                  <Image
+                    src="/images/actionable-activities.svg"
+                    alt="Atividades Acionáveis"
+                    fill
+                    className="object-contain"
+                    sizes="120px"
+                    priority
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
           <LessonBlock
             lessonName="Bloco de notas"
             whichLesson="Aula 1"
@@ -120,28 +166,115 @@ export default function LandingPageOne() {
             classNameBaseContent="pb-15"
           />
 
-          <AgendaCompareSlider />
+          <div className="flex aspect-4/3 w-full max-w-117.5 items-center justify-center overflow-hidden rounded-2xl bg-white p-5 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)]">
+            <div className="flex w-full max-w-80.75 min-w-0 items-center justify-center gap-[2.5%]">
+              <div className="relative aspect-100/127 w-[31%] shrink-0">
+                <Image
+                  src="/images/calendar-icon.png"
+                  alt="Agenda"
+                  fill
+                  className="object-contain"
+                  sizes="100px"
+                />
+              </div>
+
+              <div className="relative aspect-215/123 w-[66.5%] shrink-0">
+                <Image
+                  src="/images/text-calendar.svg"
+                  alt="Atividades participativas e atividades informativas"
+                  fill
+                  className="object-contain"
+                  sizes="215px"
+                />
+              </div>
+            </div>
+          </div>
           <LessonBlock
             lessonName="Agenda"
             whichLesson="Aula 2"
             description="Na Aula 2, o assunto muda para a Agenda. Existe uma forma certa de usá-la, e ela não é a forma que você provavelmente aprendeu. Aqui, vamos descobrir o que merece entrar ali dentro, o que nunca deveria ter entrado e por que essa distinção muda tudo."
             classNameBaseContent="pb-15"
           />
-          <div className="aspect-4/3 w-full max-w-187.5 rounded-2xl border border-blue-300 bg-[#F5F7FA]" />
+          <div className="flex aspect-4/3 w-full max-w-117.5 items-center justify-center overflow-hidden rounded-2xl bg-white p-5 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)]">
+            <div className="flex w-full max-w-80.75 min-w-0 items-center justify-center gap-[2.5%]">
+              <div className="relative aspect-100/127 w-[31%] shrink-0">
+                <Image
+                  src="/images/task-icon.png"
+                  alt="Agenda"
+                  fill
+                  className="object-contain"
+                  sizes="100px"
+                />
+              </div>
+
+              <div className="relative aspect-208/208 w-[66.5%] shrink-0">
+                <Image
+                  src="/images/text-tasks.svg"
+                  alt="Atividades participativas e atividades informativas"
+                  fill
+                  className="object-contain"
+                  sizes="215px"
+                />
+              </div>
+            </div>
+          </div>
+
           <LessonBlock
             lessonName="Lista de tarefas"
             whichLesson="Aula 3"
             description="Já na Aula 3 partimos para a Lista de Tarefas, a ferramenta que funciona como auxiliar da Agenda. É ali que mora tudo aquilo que a Agenda, sozinha, não dá conta de organizar."
             classNameBaseContent="pb-15"
           />
-          <div className="aspect-4/3 w-full max-w-187.5 rounded-2xl border border-blue-300 bg-[#F5F7FA]" />
+          <div className="@container flex w-full max-w-117.5 justify-center">
+            <div className="inline-flex h-[min(405px,68cqw)] max-w-full items-center justify-start overflow-hidden rounded-2xl bg-white pr-10 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)]">
+              <Image
+                src="/images/diary-actions.png"
+                alt="Agenda"
+                width={223}
+                height={256}
+                className="block h-full w-auto object-contain"
+                sizes="223px"
+                priority
+              />
+
+              <Image
+                src="/images/diary-text.svg"
+                alt="Ordem de ações diárias"
+                width={143}
+                height={77}
+                className="-ml-8.5 block h-[30%] w-auto object-contain"
+                sizes="143px"
+              />
+            </div>
+          </div>
           <LessonBlock
             lessonName="Ritual Semanal"
             whichLesson="Aula 4"
             description="A Aula 4 apresenta o Ritual Semanal. Uma sequência de passos que fazemos uma vez por semana para organizar os próximos sete dias e começar a semana sabendo exatamente o que ela exige de nós."
             classNameBaseContent="pb-15"
           />
-          <div className="aspect-4/3 w-full max-w-187.5 rounded-2xl border border-blue-300 bg-[#F5F7FA]" />
+          <div className="@container flex w-full max-w-117.5 justify-center">
+            <div className="flex w-full max-w-130 flex-col items-start justify-start overflow-hidden rounded-2xl bg-white pb-4 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)] sm:pb-10">
+              <Image
+                src="/images/week-image.png"
+                alt="Agenda semanal"
+                width={382}
+                height={194}
+                className="block h-auto w-full object-contain"
+                sizes="460px"
+                priority
+              />
+
+              <Image
+                src="/images/week-text.svg"
+                alt="Planejamento de ações semanais"
+                width={246}
+                height={68}
+                className="-mt-2 ml-[16%] block h-auto w-[64%] object-contain"
+                sizes="300px"
+              />
+            </div>
+          </div>
           <LessonBlock
             lessonName="Ritual Diário"
             whichLesson="Aula 5"
@@ -178,23 +311,9 @@ export default function LandingPageOne() {
               burocracia.
             </BaseContent>
           </TextWrapper>
-
-          <DashedDivider className="mt-11 mb-21" />
-
-          <TextWrapper className="sm:flex sm:max-w-110.5 sm:flex-col sm:items-start sm:justify-start">
-            <Title className="text-[49px]">
-              E oferecemos tudo por um valor <Badge label="justo" />
-            </Title>
-
-            <BaseContent className="pt-7 pb-7">
-              Bloco de Notas, Agenda, Lista de Tarefas — e dois rituais para
-              fazer as três conversarem. Tudo o que você precisa para parar de
-              improvisar o próprio tempo, por um valor que cabe no orçamento.
-            </BaseContent>
-          </TextWrapper>
         </div>
 
-        <div className="flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom,#F8FCFF_5%,#0D99FF_25%,#0F192F_80%)]">
+        <div className="mt-45 flex h-full w-full items-center justify-center bg-[linear-gradient(to_bottom,#F8FCFF_5%,#0D99FF_25%,#0F192F_80%)]">
           <CallToAction />
         </div>
 

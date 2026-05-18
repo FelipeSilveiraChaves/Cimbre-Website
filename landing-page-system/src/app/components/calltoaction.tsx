@@ -1,18 +1,27 @@
-import Image from "next/image";
 import { DashedDivider } from "./dasheddivider";
 import ParcelasComponent from "./parcelas";
 import BuyButton from "./purchasebutton";
-import MockupMac from "../../../assets/images/68951360dc0e8215efde949a_010.jpeg";
+
+import { Title } from "../(landing pages)/lp-1/components/title";
+import { Badge } from "./badge";
+import BaseContent from "../(landing pages)/lp-1/components/paragraph";
 
 export default function CallToAction() {
   return (
-    <div className="font-title flex w-full max-w-95.5 flex-col items-center justify-center rounded-b-4xl bg-transparent">
-      <div className="px-2">
-        <Image
-          src={MockupMac}
-          alt="macbook com propaganda"
-          className="h-auto w-full rounded-2xl bg-[#F5F7FA]"
-        />
+    <div className="font-title -mt-45 flex w-full max-w-95.5 flex-col items-center justify-center rounded-b-4xl bg-transparent">
+      <div className="rounded-2xl bg-white px-7.5 pt-11 pb-15.5 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)]">
+        <Title className="text-[49px]">
+          E oferecemos tudo por um valor <Badge label="Justo" />
+        </Title>
+
+        <BaseContent className="font-base pt-5.5 pb-7">
+          Acreditamos que a melhor forma de entender se o método funciona para
+          você é colocando ele em prática.
+        </BaseContent>
+        <BaseContent className="font-base">
+          Por isso, incluímos uma garantia de 7 dias: entre, assista, teste e,
+          se não fizer sentido para a sua rotina.
+        </BaseContent>
       </div>
       <ParcelasComponent />
 
