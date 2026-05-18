@@ -15,12 +15,9 @@ export default function CallToAction() {
         </Title>
 
         <BaseContent className="font-base pt-5.5 pb-7">
-          Acreditamos que a melhor forma de entender se o método funciona para
-          você é colocando ele em prática.
-        </BaseContent>
-        <BaseContent className="font-base">
-          Por isso, incluímos uma garantia de 7 dias: entre, assista, teste e,
-          se não fizer sentido para a sua rotina.
+          Bloco de Notas, Agenda, Lista de Tarefas — e dois rituais para fazer
+          as três conversarem. Tudo o que você precisa para parar de improvisar
+          o próprio tempo, por um valor que cabe no orçamento.
         </BaseContent>
       </div>
       <ParcelasComponent />
