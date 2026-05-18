@@ -60,12 +60,15 @@ export default function Navbar() {
         </button>
 
         <div className="flex items-center justify-center gap-5 text-[#6f7481]">
-          <p
+          <a
+            href="https://wa.me/5553999255355"
+            target="_blank"
+            rel="noopener noreferrer"
             className="cursor-pointer text-lg transition-all duration-200 hover:-translate-y-px hover:font-bold hover:text-[#25D366]"
-            aria-label="Suporte Whatsapp"
+            aria-label="Suporte WhatsApp"
           >
             WhatsApp
-          </p>
+          </a>
 
           <a
             href="https://www.instagram.com/cimbre.co/"

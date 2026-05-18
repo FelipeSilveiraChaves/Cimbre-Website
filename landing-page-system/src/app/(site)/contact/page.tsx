@@ -31,12 +31,12 @@ export default function ContactPage() {
           <p>
             <strong>WhatsApp:</strong>{" "}
             <a
-              href="https://wa.me/5500000000000"
+              href="https://wa.me/5553999255355"
               target="_blank"
               rel="noopener noreferrer"
               className="decoration-carbon-200 underline underline-offset-4 transition-colors hover:text-[#25D366]"
             >
-              +55 (00) 00000-0000 (temporário)
+              +55 (53) 99925-5355
             </a>
           </p>
 
