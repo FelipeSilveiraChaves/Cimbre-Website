@@ -9,12 +9,12 @@ import BaseContent from "../(landing pages)/lp-1/components/paragraph";
 export default function CallToAction() {
   return (
     <div className="font-title -mt-45 flex w-full max-w-95.5 flex-col items-center justify-center rounded-b-4xl bg-transparent">
-      <div className="rounded-2xl bg-white px-7.5 pt-11 pb-15.5 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)]">
+      <div className="rounded-2xl bg-white px-7.5 pt-11 pb-11 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)]">
         <Title className="text-[49px]">
           E oferecemos tudo por um valor <Badge label="Justo" />
         </Title>
 
-        <BaseContent className="font-base pt-5.5 pb-7">
+        <BaseContent className="font-base pt-5.5">
           Bloco de Notas, Agenda, Lista de Tarefas — e dois rituais para fazer
           as três conversarem. Tudo o que você precisa para parar de improvisar
           o próprio tempo, por um valor que cabe no orçamento.

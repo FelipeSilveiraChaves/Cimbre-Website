@@ -12,7 +12,7 @@ export default function FAQCard({ className, Question, Answer }: FAQCardProps) {
       <p className="font-title text-2xl leading-7 font-semibold tracking-normal text-[#FFFFFF]">
         {Question}
       </p>
-      <p className="font-base leading-6.5 font-[18px] tracking-normal text-[#FFFFFF86]">
+      <p className="font-base leading-6.5 font-[18px] tracking-normal text-[#FFFFFF95]">
         {Answer}
       </p>
     </div>
