@@ -44,13 +44,7 @@ export default function CallToAction() {
         <DashedDivider stroke="#E0E5EE10" className="mb-1" />
         <div className="flex items-center justify-center leading-6">
           <p className="text-[20px] leading-6 tracking-normal text-[#F5F7FA]">
-            6 aulas de gestão do tempo
-          </p>
-        </div>
-        <DashedDivider stroke="#E0E5EE10" className="my-1" />
-        <div className="flex h-6 items-center justify-center">
-          <p className="text-[20px] leading-6 tracking-normal text-[#F5F7FA]">
-            12 materiais complementares
+            5 aulas de gestão do tempo
           </p>
         </div>
         <DashedDivider stroke="#E0E5EE10" className="my-1" />
