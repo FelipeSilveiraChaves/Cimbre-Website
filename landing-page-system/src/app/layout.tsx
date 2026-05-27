@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "./components/navbar";
 import SupportButton from "./components/fab";
 import MetaPixel from "./components/MetaPixel";
+import TrackingCapture from "@/app/utils/trackingCapture";
 import GoogleAnalytics from "./components/GoogleAnalyticsPixel";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body
         className={`${gabarito.variable} ${hanken.variable} font-base flex min-h-screen flex-col bg-[#F8FCFF] font-(--font-hanken) antialiased`}
       >
+        <TrackingCapture />
         <GoogleAnalytics />
         <MetaPixel />
         <Navbar />
