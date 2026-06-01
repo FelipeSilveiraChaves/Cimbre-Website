@@ -22,7 +22,7 @@ export default function LandingPageOne() {
     {
       question: "As aulas são demoradas?",
       answer:
-        "O curso completo tem apenas 60 minutos, dividido em 6 aulas de 10 minutos cada. Você pode assistir tudo de uma vez ou ir aula por aula, no seu ritmo.",
+        "O curso completo tem apenas 60 minutos, dividido em 5 aulas de 10 a 15 minutos cada. Você pode assistir tudo de uma vez ou ir aula por aula, no seu ritmo.",
     },
     {
       question: "Quanto tempo de acesso?",
@@ -33,11 +33,6 @@ export default function LandingPageOne() {
       question: "E se eu não gostar do curso?",
       answer:
         "Você tem 7 dias de garantia incondicional. Se por qualquer motivo achar que o curso não valeu a pena, basta pedir o reembolso e devolvemos 100% do seu investimento. Sem perguntas, sem burocracia.",
-    },
-    {
-      question: "Quais são os materiais extra?",
-      answer:
-        "Sim! Você recebe planilhas práticas para calcular os principais indicadores financeiros do seu negócio. São ferramentas que você pode usar imediatamente após assistir as aulas.",
     },
     {
       question: "Posso assistir pelo celular?",
