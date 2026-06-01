@@ -28,8 +28,7 @@ export default function Home() {
         </h1>
         <BlurReveal delay={0.8}>
           <motion.a
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/lp-1"
             aria-label="Comprar o curso Cimbre"
             whileHover={{ y: 1 }}
             whileTap={{ y: 4 }}
@@ -44,7 +43,7 @@ export default function Home() {
               className="border-[#CBE9FF] opacity-100"
             />
             <span className="text-[24px] leading-6 font-extrabold text-[#0D99FF]">
-              Dinsponível Agora
+              Disponível Agora
             </span>
           </motion.a>
         </BlurReveal>
