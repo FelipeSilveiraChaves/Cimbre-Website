@@ -4,9 +4,9 @@ import { useEffect, useRef } from "react";
 import { DashedDivider } from "./dasheddivider";
 import ParcelasComponent from "./parcelas";
 import BuyButton from "./purchasebutton";
-import { Title } from "../(landing pages)/lp-1/components/title";
+import { Title } from "./title";
 import { Badge } from "./badge";
-import BaseContent from "../(landing pages)/lp-1/components/paragraph";
+import BaseContent from "./paragraph";
 import { fireViewOffer } from "@/app/utils/metaEvents";
 
 export default function CallToAction() {

@@ -1,9 +1,9 @@
 import { Badge } from "../../components/badge";
 import { DashedDivider } from "../../components/dasheddivider";
 import LocalStorageLpRegister from "../../components/localstoragelpregister";
-import BaseContent from "./components/paragraph";
+import BaseContent from "../../components/paragraph";
 import TextWrapper from "./components/textwrapper";
-import { Title } from "./components/title";
+import { Title } from "../../components/title";
 import LessonBlock from "./components/lessonblock";
 import CallToAction from "../../components/calltoaction";
 import FAQCard from "../../components/FAQ";
