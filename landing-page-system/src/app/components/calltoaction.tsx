@@ -1,14 +1,42 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { DashedDivider } from "./dasheddivider";
 import ParcelasComponent from "./parcelas";
 import BuyButton from "./purchasebutton";
-
 import { Title } from "../(landing pages)/lp-1/components/title";
 import { Badge } from "./badge";
 import BaseContent from "../(landing pages)/lp-1/components/paragraph";
+import { fireViewContent } from "@/app/utils/metaEvents";
 
 export default function CallToAction() {
+  const ref = useRef<HTMLDivElement>(null);
+  const fired = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !fired.current) {
+          fired.current = true;
+          observer.disconnect();
+          void fireViewContent();
+        }
+      },
+      { threshold: 0.4 },
+    );
+
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="font-title -mt-45 flex w-full max-w-95.5 flex-col items-center justify-center rounded-b-4xl bg-transparent">
+    <div
+      ref={ref}
+      className="font-title -mt-45 flex w-full max-w-95.5 flex-col items-center justify-center rounded-b-4xl bg-transparent"
+    >
       <div className="rounded-2xl bg-white px-7.5 pt-11 pb-11 shadow-[0px_4px_8px_0px_rgba(0,0,0,0.05),0px_0px_0px_1.13px_rgba(6,6,5,0.10)]">
         <Title className="text-[49px]">
           E oferecemos tudo por um valor <Badge label="Justo" />

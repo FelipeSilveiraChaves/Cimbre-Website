@@ -1,49 +1,43 @@
-// utils/buildCheckoutUrl.ts
+import { getTracking } from "./trackingStorage";
 
-const UTM_KEYS = [
+const CHECKOUT_PARAM_ALLOWLIST = [
   "utm_source",
   "utm_medium",
   "utm_campaign",
   "utm_content",
   "utm_term",
-];
-
-const TRACKING_KEYS = [
   "fbclid",
   "gclid",
-  "ttclid", // TikTok, por garantia
-];
+  "ttclid",
+] as const;
 
-export function captureAndStoreParams(): void {
-  if (typeof window === "undefined") return;
-
-  const params = new URLSearchParams(window.location.search);
-  const stored: Record<string, string> = {};
-
-  [...UTM_KEYS, ...TRACKING_KEYS].forEach((key) => {
-    const value = params.get(key);
-    if (value) stored[key] = value;
-  });
-
-  if (Object.keys(stored).length) {
-    sessionStorage.setItem("tracking_params", JSON.stringify(stored));
-  }
-}
-
-export function getStoredParams(): Record<string, string> {
-  if (typeof window === "undefined") return {};
-  try {
-    return JSON.parse(sessionStorage.getItem("tracking_params") || "{}");
-  } catch {
-    return {};
-  }
+function getCookie(name: string): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : undefined;
 }
 
 export function buildCheckoutUrl(baseUrl: string): string {
-  const params = getStoredParams();
-  if (!Object.keys(params).length) return baseUrl;
+  const tracking = getTracking();
+  const params = new URLSearchParams();
 
-  const urlParams = new URLSearchParams(params);
+  CHECKOUT_PARAM_ALLOWLIST.forEach((key) => {
+    const value = tracking[key];
+    if (value) params.set(key, value);
+  });
+
+  if (tracking.landingOrigin) {
+    params.set("landing_origin", tracking.landingOrigin);
+  }
+
+  const fbp = getCookie("_fbp");
+  const fbc = getCookie("_fbc");
+  if (fbp) params.set("fbp", fbp);
+  if (fbc) params.set("fbc", fbc);
+
+  const queryString = params.toString();
+  if (!queryString) return baseUrl;
+
   const separator = baseUrl.includes("?") ? "&" : "?";
-  return `${baseUrl}${separator}${urlParams.toString()}`;
+  return `${baseUrl}${separator}${queryString}`;
 }

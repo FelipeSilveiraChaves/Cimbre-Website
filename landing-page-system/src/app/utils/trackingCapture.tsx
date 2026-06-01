@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect } from "react";
-import { captureAndStoreParams } from "@/app/utils/buildCheckoutUrl";
+import { captureTrackingFromUrl } from "@/app/utils/trackingStorage";
 
 export default function TrackingCapture() {
   useEffect(() => {
-    captureAndStoreParams();
+    captureTrackingFromUrl();
   }, []);
 
   return null;

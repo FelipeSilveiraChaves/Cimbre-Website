@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { buildCheckoutUrl } from "@/app/utils/buildCheckoutUrl";
+import { fireCheckoutButtonClick } from "@/app/utils/metaEvents";
 
 export default function BuyButton() {
   const [href, setHref] = useState(process.env.NEXT_PUBLIC_CHECKOUT_URL || "#");
@@ -13,12 +14,18 @@ export default function BuyButton() {
     setHref(buildCheckoutUrl(base));
   }, []);
 
+  function handleClick() {
+    // target="_blank" mantém a página atual viva, então o fetch não será cancelado
+    void fireCheckoutButtonClick();
+  }
+
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Comprar o curso Cimbre"
+      onClick={handleClick}
       whileHover={{ y: 1 }}
       whileTap={{ y: 4 }}
       transition={{ type: "spring", stiffness: 200, damping: 10 }}

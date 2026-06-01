@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import CimbreLogo from "../../../assets/logomarca_preto-e-branco_v1.svg";
 import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { getLandingOrigin } from "@/app/utils/trackingStorage";
 
 export default function Navbar() {
   const [visible, setVisible] = useState(true);
@@ -15,8 +16,7 @@ export default function Navbar() {
   const lastY = useRef(0);
 
   function handleLogoClick() {
-    const origin = sessionStorage.getItem("landingOrigin") || "lp-1";
-    router.push(`/${origin}`);
+    router.push(`/${getLandingOrigin()}`);
   }
   useMotionValueEvent(scrollY, "change", (latest) => {
     const current = latest;
