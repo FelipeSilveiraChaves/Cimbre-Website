@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const ALLOWED_EVENTS = ["ViewContent", "CheckoutButtonClick"] as const;
+const ALLOWED_EVENTS = ["PageView", "ViewContent", "CheckoutButtonClick"] as const;
 type AllowedEvent = (typeof ALLOWED_EVENTS)[number];
 
 function isAllowedEvent(name: unknown): name is AllowedEvent {
@@ -62,13 +62,16 @@ export async function POST(request: NextRequest) {
     action_source: "website",
     event_source_url: typeof event_source_url === "string" ? event_source_url : "",
     user_data: userData,
-    custom_data: {
-      content_name: "Cimbre",
-      content_ids: ["cimbre-main-offer"],
-      content_type: "product",
-      currency: "BRL",
-      value: 97,
-    },
+    custom_data:
+      event_name === "PageView"
+        ? { content_name: "Cimbre" }
+        : {
+            content_name: "Cimbre",
+            content_ids: ["cimbre-main-offer"],
+            content_type: "product",
+            currency: "BRL",
+            value: 97,
+          },
   };
 
   const requestBody: Record<string, unknown> = {
