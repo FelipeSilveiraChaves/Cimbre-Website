@@ -7,7 +7,7 @@ import BuyButton from "./purchasebutton";
 import { Title } from "../(landing pages)/lp-1/components/title";
 import { Badge } from "./badge";
 import BaseContent from "../(landing pages)/lp-1/components/paragraph";
-import { fireViewContent } from "@/app/utils/metaEvents";
+import { fireViewOffer } from "@/app/utils/metaEvents";
 
 export default function CallToAction() {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,7 +22,7 @@ export default function CallToAction() {
         if (entries[0].isIntersecting && !fired.current) {
           fired.current = true;
           observer.disconnect();
-          void fireViewContent();
+          void fireViewOffer();
         }
       },
       { threshold: 0.4 },

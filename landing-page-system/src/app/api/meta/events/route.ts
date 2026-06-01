@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-const ALLOWED_EVENTS = ["PageView", "ViewContent", "CheckoutButtonClick"] as const;
+const ALLOWED_EVENTS = ["PageView", "ViewOffer", "CheckoutButtonClick"] as const;
 type AllowedEvent = (typeof ALLOWED_EVENTS)[number];
 
 function isAllowedEvent(name: unknown): name is AllowedEvent {
@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
     custom_data:
       event_name === "PageView"
         ? { content_name: "Cimbre" }
-        : {
+        : {  // ViewOffer e CheckoutButtonClick
             content_name: "Cimbre",
             content_ids: ["cimbre-main-offer"],
             content_type: "product",

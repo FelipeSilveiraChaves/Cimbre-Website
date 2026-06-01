@@ -27,7 +27,7 @@ function getCookie(name: string): string | undefined {
 }
 
 async function sendToCapi(payload: {
-  event_name: "ViewContent" | "CheckoutButtonClick";
+  event_name: "ViewOffer" | "CheckoutButtonClick";
   event_id: string;
   event_source_url: string;
 }): Promise<void> {
@@ -44,23 +44,23 @@ async function sendToCapi(payload: {
   }
 }
 
-export async function fireViewContent(): Promise<void> {
-  const eventId = generateEventId("vc_");
+export async function fireViewOffer(): Promise<void> {
+  const eventId = generateEventId("vo_");
   const eventSourceUrl =
     typeof window !== "undefined" ? window.location.href : "";
 
   if (typeof window !== "undefined" && window.fbq) {
-    window.fbq("track", "ViewContent", CUSTOM_DATA, { eventID: eventId });
+    window.fbq("trackCustom", "ViewOffer", CUSTOM_DATA, { eventID: eventId });
   }
 
   await sendToCapi({
-    event_name: "ViewContent",
+    event_name: "ViewOffer",
     event_id: eventId,
     event_source_url: eventSourceUrl,
   });
 
   if (process.env.NEXT_PUBLIC_TRACKING_DEBUG === "true") {
-    console.log("[meta] ViewContent", { eventId, fbp: getCookie("_fbp") });
+    console.log("[meta] ViewOffer", { eventId, fbp: getCookie("_fbp") });
   }
 }
 
