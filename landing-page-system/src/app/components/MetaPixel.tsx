@@ -20,12 +20,14 @@ export default function MetaPixel() {
           s.parentNode.insertBefore(t,s)}(window, document,'script',
           'https://connect.facebook.net/en_US/fbevents.js');
           var pvId = 'pv_' + (typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36));
+          var _fbclidVal = new URLSearchParams(window.location.search).get('fbclid');
+          var _fbcVal = _fbclidVal ? ('fb.1.' + Date.now() + '.' + _fbclidVal) : null;
           fbq('init', '${pixelId}');
           fbq('track', 'PageView', {}, { eventID: pvId });
           fetch('/api/meta/events', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ event_name: 'PageView', event_id: pvId, event_source_url: window.location.href })
+            body: JSON.stringify({ event_name: 'PageView', event_id: pvId, event_source_url: window.location.href, fbc: _fbcVal })
           });
         `}
       </Script>

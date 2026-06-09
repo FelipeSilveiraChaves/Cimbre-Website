@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
 
-  const { event_name, event_id, event_source_url } = body;
+  const { event_name, event_id, event_source_url, fbc: fbcFromBody } = body;
 
   if (!isAllowedEvent(event_name)) {
     return NextResponse.json({ error: "event_not_allowed" }, { status: 400 });
@@ -42,9 +42,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "event_id_required" }, { status: 400 });
   }
 
-  // Lê _fbp e _fbc dos cookies da requisição — não do body (same-origin, cookies chegam automaticamente)
   const fbp = request.cookies.get("_fbp")?.value;
-  const fbc = request.cookies.get("_fbc")?.value;
+  const fbc =
+    request.cookies.get("_fbc")?.value ??
+    (typeof fbcFromBody === "string" && fbcFromBody ? fbcFromBody : undefined);
 
   const clientIp = getClientIp(request);
   const clientUserAgent = request.headers.get("user-agent") ?? "";
