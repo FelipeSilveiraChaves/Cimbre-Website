@@ -14,8 +14,11 @@ export default function BuyButton() {
     setHref(buildCheckoutUrl(base));
   }, []);
 
-  function handleClick() {
-    // target="_blank" mantém a página atual viva, então o fetch não será cancelado
+  function handleClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    // Reconstrói a URL no momento exato do clique para garantir que _fbp, _fbc e UTMs
+    // já estejam disponíveis — o useEffect pode ter rodado antes do Pixel setar os cookies.
+    const base = process.env.NEXT_PUBLIC_CHECKOUT_URL || "#";
+    e.currentTarget.href = buildCheckoutUrl(base);
     void fireCheckoutButtonClick();
   }
 

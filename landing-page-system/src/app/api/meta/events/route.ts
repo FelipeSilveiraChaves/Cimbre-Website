@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { ServerEvent, EventRequest, UserData, CustomData } from "facebook-nodejs-business-sdk";
 
 const ALLOWED_EVENTS = ["PageView", "ViewOffer", "CheckoutButtonClick"] as const;
 type AllowedEvent = (typeof ALLOWED_EVENTS)[number];
@@ -32,7 +33,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "invalid_json" }, { status: 400 });
   }
 
-  const { event_name, event_id, event_source_url, fbc: fbcFromBody } = body;
+  const { event_name, event_id, event_source_url, fbc: bodyFbc } = body;
 
   if (!isAllowedEvent(event_name)) {
     return NextResponse.json({ error: "event_not_allowed" }, { status: 400 });
@@ -42,70 +43,60 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "event_id_required" }, { status: 400 });
   }
 
+  // Lê _fbp e _fbc dos cookies da requisição (same-origin, chegam automaticamente)
   const fbp = request.cookies.get("_fbp")?.value;
   const fbc =
     request.cookies.get("_fbc")?.value ??
-    (typeof fbcFromBody === "string" && fbcFromBody ? fbcFromBody : undefined);
-
+    (typeof bodyFbc === "string" ? bodyFbc : undefined);
   const clientIp = getClientIp(request);
   const clientUserAgent = request.headers.get("user-agent") ?? "";
 
-  const userData: Record<string, string> = {};
-  if (clientIp) userData.client_ip_address = clientIp;
-  if (clientUserAgent) userData.client_user_agent = clientUserAgent;
-  if (fbp) userData.fbp = fbp;
-  if (fbc) userData.fbc = fbc;
+  const userData = new UserData();
+  if (clientIp) userData.setClientIpAddress(clientIp);
+  if (clientUserAgent) userData.setClientUserAgent(clientUserAgent);
+  if (fbp) userData.setFbp(fbp);
+  if (fbc) userData.setFbc(fbc);
 
-  const eventPayload = {
-    event_name,
-    event_time: Math.floor(Date.now() / 1000),
-    event_id,
-    action_source: "website",
-    event_source_url: typeof event_source_url === "string" ? event_source_url : "",
-    user_data: userData,
-    custom_data:
-      event_name === "PageView"
-        ? { content_name: "Cimbre" }
-        : {  // ViewOffer e CheckoutButtonClick
-            content_name: "Cimbre",
-            content_ids: ["cimbre-main-offer"],
-            content_type: "product",
-            currency: "BRL",
-            value: 97,
-          },
-  };
+  const customData = new CustomData();
+  customData.setContentName("Cimbre");
 
-  const requestBody: Record<string, unknown> = {
-    data: [eventPayload],
-  };
+  if (event_name !== "PageView") {
+    customData
+      .setContentIds(["cimbre-main-offer"])
+      .setContentType("product")
+      .setCurrency("BRL")
+      .setValue(97);
+  }
+
+  const serverEvent = new ServerEvent()
+    .setEventName(event_name)
+    .setEventTime(Math.floor(Date.now() / 1000))
+    .setEventId(event_id)
+    .setActionSource("website")
+    .setEventSourceUrl(typeof event_source_url === "string" ? event_source_url : "")
+    .setUserData(userData)
+    .setCustomData(customData);
+
+  const eventRequest = new EventRequest(accessToken, pixelId).setEvents([
+    serverEvent,
+  ]);
 
   if (testEventCode) {
-    requestBody.test_event_code = testEventCode;
+    eventRequest.setTestEventCode(testEventCode);
   }
 
   try {
-    const metaResponse = await fetch(
-      `https://graph.facebook.com/v21.0/${pixelId}/events`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
-        body: JSON.stringify(requestBody),
-      },
-    );
+    await eventRequest.execute();
 
     if (process.env.NODE_ENV !== "production") {
-      const result = (await metaResponse.json()) as unknown;
-      console.log("[capi]", event_name, event_id, result);
+      console.log("[capi]", event_name, event_id, "sent via SDK");
     }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
     if (process.env.NODE_ENV !== "production") {
-      console.error("[capi] fetch error:", err);
+      console.error("[capi] SDK error:", err);
     }
-    return NextResponse.json({ ok: false, error: "fetch_failed" }, { status: 500 });
+    return NextResponse.json({ ok: false, error: "sdk_error" }, { status: 500 });
   }
 }
