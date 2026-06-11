@@ -1,3 +1,5 @@
+import { getOrCreateExternalId } from "./trackingStorage";
+
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
@@ -36,6 +38,9 @@ async function sendToCapi(payload: {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
+      // No browser do Instagram (99% do tráfego) o checkout pode navegar a
+      // própria webview, matando requisições pendentes — keepalive preserva.
+      keepalive: true,
     });
   } catch (err) {
     if (process.env.NODE_ENV !== "production") {
@@ -46,6 +51,8 @@ async function sendToCapi(payload: {
 
 export async function fireViewOffer(): Promise<void> {
   const eventId = generateEventId("vo_");
+  // Garante o cookie cimbre_eid antes do fetch da CAPI (caso o Pixel não tenha rodado).
+  getOrCreateExternalId();
   const eventSourceUrl =
     typeof window !== "undefined" ? window.location.href : "";
 
@@ -66,6 +73,8 @@ export async function fireViewOffer(): Promise<void> {
 
 export async function fireCheckoutButtonClick(): Promise<void> {
   const eventId = generateEventId("cbc_");
+  // Garante o cookie cimbre_eid antes do fetch da CAPI (caso o Pixel não tenha rodado).
+  getOrCreateExternalId();
   const eventSourceUrl =
     typeof window !== "undefined" ? window.location.href : "";
 

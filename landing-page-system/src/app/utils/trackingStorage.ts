@@ -21,11 +21,15 @@ export type TrackingData = {
   fbclid?: string;
   gclid?: string;
   ttclid?: string;
+  externalId?: string;
   firstLandingUrl?: string;
   firstSeenAt?: string;
   lastSeenAt?: string;
   expiresAt?: string;
 };
+
+const EXTERNAL_ID_COOKIE = "cimbre_eid";
+const EXTERNAL_ID_TTL_DAYS = 365;
 
 const URL_PARAM_ALLOWLIST: UrlParam[] = [
   "utm_source",
@@ -109,4 +113,50 @@ export function registerLandingOrigin(lpId: string): void {
 
 export function getLandingOrigin(): string {
   return getTracking().landingOrigin ?? "lp-1";
+}
+
+function getCookie(name: string): string | undefined {
+  if (typeof document === "undefined") return undefined;
+  const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : undefined;
+}
+
+function setExternalIdCookie(value: string): void {
+  if (typeof document === "undefined") return;
+  const maxAge = EXTERNAL_ID_TTL_DAYS * 24 * 60 * 60;
+  const secure =
+    typeof location !== "undefined" && location.protocol === "https:"
+      ? "; Secure"
+      : "";
+  document.cookie = `${EXTERNAL_ID_COOKIE}=${encodeURIComponent(
+    value,
+  )}; Max-Age=${maxAge}; Path=/; SameSite=Lax${secure}`;
+}
+
+function newExternalId(): string {
+  return typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+    ? crypto.randomUUID()
+    : Math.random().toString(36).slice(2) + Date.now().toString(36);
+}
+
+/**
+ * Retorna um ID anônimo e persistente do visitante (external_id), criando-o na
+ * primeira visita. Fonte de verdade: cookie first-party `cimbre_eid`, lido pela
+ * CAPI exatamente como _fbp/_fbc. Espelhado no localStorage por resiliência
+ * (restaura o mesmo valor se o cookie for limpo). Reutilizado em toda a jornada.
+ */
+export function getOrCreateExternalId(): string {
+  const fromCookie = getCookie(EXTERNAL_ID_COOKIE);
+  if (fromCookie) return fromCookie;
+
+  const existing = getTracking();
+  if (existing.externalId) {
+    setExternalIdCookie(existing.externalId);
+    return existing.externalId;
+  }
+
+  const id = newExternalId();
+  setExternalIdCookie(id);
+  saveTracking({ ...existing, externalId: id });
+  return id;
 }

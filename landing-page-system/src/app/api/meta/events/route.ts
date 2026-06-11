@@ -15,7 +15,10 @@ function getClientIp(request: NextRequest): string {
 }
 
 export async function POST(request: NextRequest) {
-  const pixelId = process.env.META_PIXEL_ID;
+  // Precisa ser o MESMO id que o Pixel usa no browser, senão a deduplicação
+  // quebra em silêncio. O fallback elimina divergência se só uma var existir.
+  const pixelId =
+    process.env.META_PIXEL_ID ?? process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const accessToken = process.env.META_CAPI_ACCESS_TOKEN;
   const testEventCode = process.env.META_TEST_EVENT_CODE;
 
@@ -48,6 +51,10 @@ export async function POST(request: NextRequest) {
   const fbc =
     request.cookies.get("_fbc")?.value ??
     (typeof bodyFbc === "string" ? bodyFbc : undefined);
+  // ID anônimo do visitante (sinal extra de correspondência). Chega no cookie
+  // first-party same-origin, igual a _fbp/_fbc. O SDK envia external_id em texto
+  // puro (sem hash), idêntico ao advanced matching do Pixel — então casam.
+  const externalId = request.cookies.get("cimbre_eid")?.value;
   const clientIp = getClientIp(request);
   const clientUserAgent = request.headers.get("user-agent") ?? "";
 
@@ -56,6 +63,7 @@ export async function POST(request: NextRequest) {
   if (clientUserAgent) userData.setClientUserAgent(clientUserAgent);
   if (fbp) userData.setFbp(fbp);
   if (fbc) userData.setFbc(fbc);
+  if (externalId) userData.setExternalId(externalId);
 
   const customData = new CustomData();
   customData.setContentName("Cimbre");
@@ -73,9 +81,12 @@ export async function POST(request: NextRequest) {
     .setEventTime(Math.floor(Date.now() / 1000))
     .setEventId(event_id)
     .setActionSource("website")
-    .setEventSourceUrl(typeof event_source_url === "string" ? event_source_url : "")
     .setUserData(userData)
     .setCustomData(customData);
+
+  if (typeof event_source_url === "string" && event_source_url) {
+    serverEvent.setEventSourceUrl(event_source_url);
+  }
 
   const eventRequest = new EventRequest(accessToken, pixelId).setEvents([
     serverEvent,
