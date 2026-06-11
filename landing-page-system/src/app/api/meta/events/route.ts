@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { ServerEvent, EventRequest, UserData, CustomData } from "facebook-nodejs-business-sdk";
 
@@ -63,7 +64,13 @@ export async function POST(request: NextRequest) {
   if (clientUserAgent) userData.setClientUserAgent(clientUserAgent);
   if (fbp) userData.setFbp(fbp);
   if (fbc) userData.setFbc(fbc);
-  if (externalId) userData.setExternalId(externalId);
+  if (externalId) {
+    // SHA-256 para ficar byte-idêntico ao que o Pixel envia no browser (o
+    // fbevents.js hasheia external_id no client antes de mandar ud[external_id]).
+    userData.setExternalId(
+      createHash("sha256").update(externalId).digest("hex"),
+    );
+  }
 
   const customData = new CustomData();
   customData.setContentName("Cimbre");
