@@ -1,4 +1,5 @@
 import LocalStorageLpRegister from "../../components/localstoragelpregister";
+import ViewOfferTrigger from "../../components/ViewOfferTrigger";
 import TextWrapper from "../../components/textwrapper";
 import Title from "./components/title";
 import Subtitle from "./components/subtitle";
@@ -7,6 +8,7 @@ import Image from "next/image";
 import CtaButton from "./components/ctabutton";
 import Lessons from "./components/lessons";
 import Faq from "./components/faq";
+import CallToActionLp2 from "./components/callToActionLp2";
 
 export default function LandingPageTwo() {
   return (
@@ -27,7 +29,6 @@ export default function LandingPageTwo() {
                   width={277}
                   height={133}
                   className="-mb-0.5 h-14.75 w-auto"
-                  priority
                 />
               </span>
               organizado!
@@ -49,6 +50,8 @@ export default function LandingPageTwo() {
             width={755}
             height={487}
             alt=""
+            priority
+            sizes="320px"
             className="w-80"
           />
         </div>
@@ -65,7 +68,9 @@ export default function LandingPageTwo() {
               className="h-15 w-auto"
             />
             {/* imagem -> título: 16px */}
-            <Title className="mt-3">Conteúdos.</Title>
+            <Title as="h2" className="mt-3">
+              Conteúdos.
+            </Title>
             {/* título -> frase: 20px */}
             <Subtitle className="mt-5 mb-5">
               São sete aulas diretas ao ponto para você aplicar hoje mesmo.
@@ -87,24 +92,11 @@ export default function LandingPageTwo() {
         </div>
 
         <div id="preco" aria-hidden className="scroll-mt-24" />
-        <TextWrapper padding="px-6">
-          <Image
-            src="/images/notesAppIcon.png"
-            alt="Agenda, bloco de notas e lista de tarefas"
-            width={56}
-            height={56}
-            className="h-14.75 w-auto"
-            priority
-          />
-          <Title>Risco zero!</Title>
-          <Subtitle className="mt-4 mb-18">
-            São sete aulas curtas e diretas ao ponto para você aplicar hoje
-            mesmo.
-          </Subtitle>
-        </TextWrapper>
-        {/* quadro em branco — a imagem entra aqui depois */}
+
         <div className="mb-20 flex w-full flex-col items-center px-4">
-          <div className="relative w-full max-w-100">
+          {/* dispara ViewOffer (Pixel + CAPI) quando a oferta entra na tela */}
+          <ViewOfferTrigger />
+          <div className="relative w-full max-w-130">
             <Image
               src="/images/threeIcons2.png"
               alt="Agenda, bloco de notas e lista de tarefas"
@@ -112,7 +104,11 @@ export default function LandingPageTwo() {
               height={64}
               className="absolute -top-10 left-6 z-10 h-20 w-auto"
             />
-            <div className="aspect-5/6 w-full rounded-2xl border bg-white shadow-[0_2px_12px_rgba(0,0,0,0.05)]" />
+            <CallToActionLp2 />
+            <p className="px-6 pt-2 text-[14px] leading-5 font-normal text-[#5F6368]">
+              Comercializado por Interception Digital LTDA <br /> Cnpj
+              49.821.411/0001-37
+            </p>
           </div>
         </div>
         <div id="duvidas" aria-hidden className="scroll-mt-24" />
@@ -123,9 +119,8 @@ export default function LandingPageTwo() {
             width={58}
             height={58}
             className="mb-4 h-14.75 w-auto"
-            priority
           />
-          <Title>Dúvidas?</Title>
+          <Title as="h2">Dúvidas?</Title>
           <Subtitle className="my-5">
             São sete aulas curtas e diretas ao ponto para você aplicar hoje
             mesmo.
@@ -134,9 +129,9 @@ export default function LandingPageTwo() {
             <CtaButton
               variant="primary"
               borderBeam
-              targetId="preco"
+              checkout
               label="Comprar"
-              icon="up"
+              icon="up-right"
             />
             <CtaButton
               variant="secondary"

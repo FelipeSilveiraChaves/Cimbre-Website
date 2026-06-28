@@ -1,8 +1,11 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown, ArrowUp, ArrowUpRight, type LucideIcon } from "lucide-react";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { buildCheckoutUrl } from "@/app/utils/buildCheckoutUrl";
+import { fireCheckoutButtonClick } from "@/app/utils/metaEvents";
 import { cn } from "@/lib/utils";
 
 type Variant = "primary" | "secondary";
@@ -50,6 +53,7 @@ export default function CtaButton({
   beamColor = "#D7FF60",
   targetId,
   href,
+  checkout = false,
   label,
   icon,
 }: {
@@ -60,11 +64,31 @@ export default function CtaButton({
   targetId?: string;
   // link externo (ex.: WhatsApp). Tem prioridade sobre targetId e abre em nova aba.
   href?: string;
+  // quando true, abre o checkout em nova aba com a URL construída (UTMs, fbp/fbc),
+  // igual ao IniciarButton. Tem prioridade sobre href/targetId.
+  checkout?: boolean;
   // texto do botão; se omitido, usa o padrão da variante
   label?: string;
   // direção da seta; se omitida, usa o padrão da variante
   icon?: IconDir;
 }) {
+  // href do checkout — começa com a base e é reconstruído no client (e no clique)
+  // para garantir que _fbp, _fbc e UTMs já estejam disponíveis.
+  const [checkoutHref, setCheckoutHref] = useState(
+    process.env.NEXT_PUBLIC_CHECKOUT_URL || "#",
+  );
+
+  useEffect(() => {
+    if (!checkout) return;
+    const base = process.env.NEXT_PUBLIC_CHECKOUT_URL || "#";
+    setCheckoutHref(buildCheckoutUrl(base));
+  }, [checkout]);
+
+  function handleCheckoutClick(e: React.MouseEvent<HTMLAnchorElement>) {
+    const base = process.env.NEXT_PUBLIC_CHECKOUT_URL || "#";
+    e.currentTarget.href = buildCheckoutUrl(base);
+    void fireCheckoutButtonClick();
+  }
   const {
     bg,
     label: defaultLabel,
@@ -99,6 +123,26 @@ export default function CtaButton({
       </span>
     </>
   );
+
+  // checkout — abre o checkout em nova aba com a URL construída (UTMs, fbp/fbc)
+  if (checkout) {
+    return (
+      <motion.a
+        href={checkoutHref}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Comprar o curso Cimbre"
+        onClick={handleCheckoutClick}
+        whileHover={{ y: 1 }}
+        whileTap={{ y: 4 }}
+        transition={{ type: "tween", stiffness: 200, damping: 10 }}
+        style={{ backgroundColor: bg, color: textColor }}
+        className={className}
+      >
+        {content}
+      </motion.a>
+    );
+  }
 
   // link externo (WhatsApp etc.) — abre em nova aba
   if (href) {
