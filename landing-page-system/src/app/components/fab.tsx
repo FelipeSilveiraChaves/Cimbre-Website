@@ -12,9 +12,17 @@ export default function SupportButton({
   href = "/contact",
   label = "Suporte",
 }: SupportButtonProps) {
+  // links externos (WhatsApp, mailto, tel...) abrem em nova aba
+  const isExternal =
+    /^https?:\/\//.test(href) ||
+    href.startsWith("mailto:") ||
+    href.startsWith("tel:");
+
   return (
     <Link
       href={href}
+      target={isExternal ? "_blank" : undefined}
+      rel={isExternal ? "noopener noreferrer" : undefined}
       className="font-title fixed right-5 bottom-5 z-50 inline-flex items-center justify-center gap-2 rounded-full bg-[#050D1F] px-4 py-2.5 text-[16px] font-semibold text-white shadow-lg ring-1 ring-white/10 transition hover:-translate-y-0.5 hover:shadow-xl active:translate-y-0"
       aria-label="Abrir suporte"
     >

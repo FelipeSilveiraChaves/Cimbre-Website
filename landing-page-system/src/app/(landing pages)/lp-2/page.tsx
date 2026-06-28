@@ -37,8 +37,8 @@ export default function LandingPageTwo() {
               para controlar a sua vida.
             </Subtitle>
             <div className="flex gap-2">
-              <CtaButton variant="primary" borderBeam />
-              <CtaButton variant="secondary" />
+              <CtaButton variant="primary" borderBeam targetId="preco" />
+              <CtaButton variant="secondary" targetId="duvidas" />
             </div>
           </TextWrapper>
         </div>
@@ -70,6 +70,15 @@ export default function LandingPageTwo() {
             <Subtitle className="mt-5 mb-5">
               São sete aulas diretas ao ponto para você aplicar hoje mesmo.
             </Subtitle>
+            <div className="mb-4 flex gap-2">
+              <CtaButton
+                variant="primary"
+                borderBeam
+                targetId="preco"
+                beamColor="#FFF"
+                label="Garanta já!"
+              />
+            </div>
           </TextWrapper>
         </div>
 
@@ -88,13 +97,10 @@ export default function LandingPageTwo() {
             priority
           />
           <Title>Risco zero!</Title>
-          <Subtitle className="my-4">
+          <Subtitle className="mt-4 mb-18">
             São sete aulas curtas e diretas ao ponto para você aplicar hoje
             mesmo.
           </Subtitle>
-          <div className="mb-18 flex gap-2">
-            <CtaButton variant="primary" borderBeam beamColor="#fff" />
-          </div>
         </TextWrapper>
         {/* quadro em branco — a imagem entra aqui depois */}
         <div className="mb-20 flex w-full flex-col items-center px-4">
@@ -125,10 +131,22 @@ export default function LandingPageTwo() {
             mesmo.
           </Subtitle>
           <div className="mb-6 flex gap-2">
-            <CtaButton variant="primary" borderBeam beamColor="#fff" />
+            <CtaButton
+              variant="primary"
+              borderBeam
+              targetId="preco"
+              label="Comprar"
+              icon="up"
+            />
+            <CtaButton
+              variant="secondary"
+              borderBeam
+              href="https://wa.me/5553999255355?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Cimbre%20e%20fiquei%20interessado.%20Quero%20entender%20melhor%20como%20funciona%20e%20se%20faz%20sentido%20para%20mim."
+              label="Tirar dúvidas no nosso WhatsApp"
+            />
           </div>
         </TextWrapper>
-        <div className="mb-16 flex w-full flex-col items-center px-4">
+        <div className="flex w-full flex-col items-center px-4">
           <Faq />
         </div>
       </div>
