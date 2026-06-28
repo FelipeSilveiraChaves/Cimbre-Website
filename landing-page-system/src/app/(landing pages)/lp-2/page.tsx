@@ -5,6 +5,8 @@ import Subtitle from "./components/subtitle";
 
 import Image from "next/image";
 import CtaButton from "./components/ctabutton";
+import Lessons from "./components/lessons";
+import Faq from "./components/faq";
 
 export default function LandingPageTwo() {
   return (
@@ -50,7 +52,10 @@ export default function LandingPageTwo() {
             className="w-80"
           />
         </div>
-        <div className="mt-20 flex w-full flex-col items-center px-4">
+        <div
+          id="conteudos"
+          className="mt-16 flex w-full scroll-mt-24 flex-col items-center px-4"
+        >
           <TextWrapper padding="px-6">
             <Image
               src="/images/threeIcons.png"
@@ -62,10 +67,69 @@ export default function LandingPageTwo() {
             {/* imagem -> título: 16px */}
             <Title className="mt-3">Conteúdos.</Title>
             {/* título -> frase: 20px */}
-            <Subtitle className="mt-5 mb-90">
+            <Subtitle className="mt-5 mb-5">
               São sete aulas diretas ao ponto para você aplicar hoje mesmo.
             </Subtitle>
           </TextWrapper>
+        </div>
+
+        <div className="mb-16 flex w-full flex-col items-center px-4">
+          <Lessons />
+        </div>
+
+        <div id="preco" aria-hidden className="scroll-mt-24" />
+        <TextWrapper padding="px-6">
+          <Image
+            src="/images/notesAppIcon.png"
+            alt="Agenda, bloco de notas e lista de tarefas"
+            width={56}
+            height={56}
+            className="h-14.75 w-auto"
+            priority
+          />
+          <Title>Risco zero!</Title>
+          <Subtitle className="my-4">
+            São sete aulas curtas e diretas ao ponto para você aplicar hoje
+            mesmo.
+          </Subtitle>
+          <div className="mb-18 flex gap-2">
+            <CtaButton variant="primary" borderBeam beamColor="#fff" />
+          </div>
+        </TextWrapper>
+        {/* quadro em branco — a imagem entra aqui depois */}
+        <div className="mb-20 flex w-full flex-col items-center px-4">
+          <div className="relative w-full max-w-100">
+            <Image
+              src="/images/threeIcons2.png"
+              alt="Agenda, bloco de notas e lista de tarefas"
+              width={134}
+              height={64}
+              className="absolute -top-10 left-6 z-10 h-20 w-auto"
+            />
+            <div className="aspect-5/6 w-full rounded-2xl border bg-white shadow-[0_2px_12px_rgba(0,0,0,0.05)]" />
+          </div>
+        </div>
+        <div id="duvidas" aria-hidden className="scroll-mt-24" />
+        <TextWrapper padding="px-6">
+          <Image
+            src="/images/WHATSAPP.png"
+            alt="logo whatsapp"
+            width={58}
+            height={58}
+            className="mb-4 h-14.75 w-auto"
+            priority
+          />
+          <Title>Dúvidas?</Title>
+          <Subtitle className="my-5">
+            São sete aulas curtas e diretas ao ponto para você aplicar hoje
+            mesmo.
+          </Subtitle>
+          <div className="mb-6 flex gap-2">
+            <CtaButton variant="primary" borderBeam beamColor="#fff" />
+          </div>
+        </TextWrapper>
+        <div className="mb-16 flex w-full flex-col items-center px-4">
+          <Faq />
         </div>
       </div>
     </>

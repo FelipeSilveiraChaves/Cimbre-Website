@@ -39,9 +39,11 @@ const variants: Record<
 export default function CtaButton({
   variant = "primary",
   borderBeam = false,
+  beamColor = "#D7FF60",
 }: {
   variant?: Variant;
   borderBeam?: boolean;
+  beamColor?: string;
 }) {
   const { bg, label, Icon, iconColor, textColor, beamBorder } =
     variants[variant];
@@ -63,7 +65,7 @@ export default function CtaButton({
             lightWidth={80}
             borderWidth={2.5}
             duration={2}
-            lightColor="#D7FF60"
+            lightColor={beamColor}
             className={cn(beamBorder, "opacity-100")}
           />
         </span>
