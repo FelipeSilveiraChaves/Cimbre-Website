@@ -45,16 +45,19 @@ export default function LandingPageTwo() {
         </div>
 
         <div className="mt-6 flex w-full items-end justify-end pl-4 sm:items-center sm:justify-center">
-          <Image
-            src={"/images/mainImage.png"}
-            width={794}
-            height={972}
-            alt=""
-            priority
-            sizes="320px"
-            className="w-121.5"
-          />
+          <div className="rounded-tl-2xl rounded-bl-2xl bg-[#4285F5] pt-6 pl-6">
+            <Image
+              src={"/images/mainImage.png"}
+              width={794}
+              height={972}
+              alt=""
+              priority
+              sizes="320px"
+              className="w-121.5"
+            />
+          </div>
         </div>
+
         <div
           id="conteudos"
           className="mt-16 flex w-full scroll-mt-24 flex-col items-center px-4"
