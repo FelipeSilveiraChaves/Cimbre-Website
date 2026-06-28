@@ -44,15 +44,15 @@ export default function LandingPageTwo() {
           </TextWrapper>
         </div>
 
-        <div className="mt-6 flex w-full items-end justify-end">
+        <div className="mt-6 flex w-full items-end justify-end pl-4 sm:items-center sm:justify-center">
           <Image
             src={"/images/mainImage.png"}
-            width={755}
-            height={487}
+            width={794}
+            height={972}
             alt=""
             priority
             sizes="320px"
-            className="w-80"
+            className="w-121.5"
           />
         </div>
         <div
