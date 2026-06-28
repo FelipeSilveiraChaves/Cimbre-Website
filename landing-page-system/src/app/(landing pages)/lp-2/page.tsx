@@ -142,7 +142,7 @@ export default function LandingPageTwo() {
               variant="secondary"
               borderBeam
               href="https://wa.me/5553999255355?text=Ol%C3%A1!%20Vim%20pela%20p%C3%A1gina%20da%20Cimbre%20e%20fiquei%20interessado.%20Quero%20entender%20melhor%20como%20funciona%20e%20se%20faz%20sentido%20para%20mim."
-              label="Tirar dúvidas no nosso WhatsApp"
+              label="WhatsApp"
             />
           </div>
         </TextWrapper>
