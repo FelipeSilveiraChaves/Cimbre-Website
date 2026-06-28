@@ -5,6 +5,7 @@
 @theme {
   --font-gabarito: var(--font-gabarito);
   --font-hanken: var(--font-hanken);
+  --font-google-sans-flex: var(--font-google-sans-flex);
 }
 
 body {
@@ -21,6 +22,21 @@ body {
 @layer utilities {
   .font-base {
     font-family: var(--font-hanken);
+  }
+}
+
+@layer utilities {
+  /* Google Sans Flex com os eixos do Figma:
+     weight 600, opsz automático, slant 0, width 100, GRAD 0, ROND 50 */
+  .font-gsf {
+    font-family: var(--font-google-sans-flex);
+    font-weight: 600;
+    font-optical-sizing: auto;
+    font-variation-settings:
+      "slnt" 0,
+      "wdth" 100,
+      "GRAD" 0,
+      "ROND" 50;
   }
 }
 

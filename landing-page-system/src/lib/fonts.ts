@@ -1,4 +1,12 @@
 import { Gabarito, Hanken_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
+
+export const googleSansFlex = localFont({
+  src: "../../assets/fonts/GoogleSansFlex.woff2",
+  display: "swap",
+  variable: "--font-google-sans-flex",
+  weight: "100 1000", // variable: cobre todo o range de peso
+});
 
 export const gabarito = Gabarito({
   subsets: ["latin"],

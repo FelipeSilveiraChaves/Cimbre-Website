@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <div className="flex flex-1 flex-col">
+    <div className="flex flex-1 flex-col pt-32.5">
       <div className="flex flex-1 flex-col content-between items-center justify-center p-4">
         <h1 className="text-carbon-800 mb-8 pb-2 text-[40px] leading-none tracking-[-0.4px] sm:text-5xl">
           <BlurReveal delay={0.05}>Organização</BlurReveal>{" "}

@@ -1,0 +1,76 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowDown, ArrowUpRight, type LucideIcon } from "lucide-react";
+import { BorderBeam } from "@/components/ui/border-beam";
+import { cn } from "@/lib/utils";
+
+type Variant = "primary" | "secondary";
+
+const variants: Record<
+  Variant,
+  {
+    bg: string;
+    label: string;
+    Icon: LucideIcon;
+    iconColor: string;
+    textColor: string;
+    beamBorder: string;
+  }
+> = {
+  primary: {
+    bg: "#202124",
+    label: "Iniciar curso",
+    Icon: ArrowDown,
+    iconColor: "#6A6B6D",
+    textColor: "#FFFFFF",
+    beamBorder: "border-[#202124]",
+  },
+  secondary: {
+    bg: "#FFF",
+    label: "Tirar dúvidas",
+    Icon: ArrowUpRight,
+    iconColor: "#CACBCD",
+    textColor: "#5F6368",
+    beamBorder: "border-[#FFFFFF]",
+  },
+};
+
+export default function CtaButton({
+  variant = "primary",
+  borderBeam = false,
+}: {
+  variant?: Variant;
+  borderBeam?: boolean;
+}) {
+  const { bg, label, Icon, iconColor, textColor, beamBorder } =
+    variants[variant];
+
+  return (
+    <motion.button
+      whileHover={{ y: 1 }}
+      whileTap={{ y: 4 }}
+      transition={{ type: "tween", stiffness: 200, damping: 10 }}
+      style={{ backgroundColor: bg, color: textColor }}
+      className={cn(
+        "flex h-8 cursor-pointer items-center justify-center rounded-[8px] py-2.5 pr-2 pl-2.5 text-[17px] leading-4.25 font-normal [box-shadow:0_0_0_1px_rgba(0,0,0,0.06),0_1px_1px_-0.5px_rgba(0,0,0,0.06),0_3px_3px_-1.5px_rgba(0,0,0,0.06)]",
+        borderBeam && "relative",
+      )}
+    >
+      {borderBeam && (
+        <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[8px]">
+          <BorderBeam
+            lightWidth={80}
+            borderWidth={2.5}
+            duration={2}
+            lightColor="#D7FF60"
+            className={cn(beamBorder, "opacity-100")}
+          />
+        </span>
+      )}
+      <span className="relative z-10 flex items-center justify-center gap-1">
+        {label} <Icon size={19} color={iconColor} />
+      </span>
+    </motion.button>
+  );
+}

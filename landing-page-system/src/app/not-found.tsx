@@ -2,7 +2,7 @@ import Button from "./components/button";
 
 export default function notFound404() {
   return (
-    <div className="flex flex-1 items-center justify-center p-4">
+    <div className="flex flex-1 items-center justify-center p-4 pt-32.5">
       <div>
         <h1 className="text-carbon-800 justify-center pb-2 text-6xl leading-none tracking-[-0.4px] sm:text-8xl">
           404

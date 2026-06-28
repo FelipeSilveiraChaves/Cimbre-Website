@@ -1,23 +1,15 @@
 "use client";
 
-import { FaInstagram } from "react-icons/fa6";
-import { useRouter } from "next/navigation";
-import CimbreLogo from "../../../assets/logomarca_preto-e-branco_v1.svg";
 import { useRef, useState } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { getLandingOrigin } from "@/app/utils/trackingStorage";
 
 export default function Navbar() {
   const [visible, setVisible] = useState(true);
-  const router = useRouter();
 
   // Framer: scroll position
   const { scrollY } = useScroll();
   const lastY = useRef(0);
 
-  function handleLogoClick() {
-    router.push(`/${getLandingOrigin()}`);
-  }
   useMotionValueEvent(scrollY, "change", (latest) => {
     const current = latest;
     const prev = lastY.current;
@@ -41,7 +33,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 z-50 w-full bg-transparent px-2 pt-2 will-change-transform sm:pt-5"
+      className="fixed top-0 left-0 z-50 w-full bg-transparent px-2 pt-8 will-change-transform"
       initial={{ y: 0 }}
       animate={visible ? { y: 0 } : { y: -90 }}
       transition={{
@@ -50,38 +42,44 @@ export default function Navbar() {
       }}
       style={{ pointerEvents: visible ? "auto" : "none" }}
     >
-      <nav className="mx-auto flex h-14.5 w-full max-w-187.5 items-center justify-between rounded-full bg-white/78 pr-5.75 pl-7.25 shadow-[0_4px_8px_0_rgba(0,0,0,0.05),0_0_0_1.13px_rgba(6,6,5,0.063)] backdrop-blur-md will-change-[backdrop-filter]">
-        <button
-          aria-label="Home"
-          onClick={handleLogoClick}
-          className="cursor-pointer text-[#2d2d2d] transition-all duration-200 hover:-translate-y-px hover:text-[#0D99FF]"
-        >
-          <CimbreLogo className="h-7 w-auto" />
-        </button>
+      <nav className="mx-auto flex h-8.75 w-full max-w-79 items-center justify-center overflow-hidden rounded-[12px] bg-white/78 px-4 [box-shadow:0_0_0_1px_rgba(0,0,0,0.03),0_1px_1px_-0.5px_rgba(0,0,0,0.03),0_3px_3px_-1.5px_rgba(0,0,0,0.03)] backdrop-blur-md will-change-[backdrop-filter]">
+        <ul className="flex h-full items-center justify-center">
+          <li className="flex h-full items-center justify-center">
+            <button
+              type="button"
+              className="font-google-sans-flex flex h-full cursor-pointer items-center justify-center px-4 text-[16px] leading-4 font-normal tracking-[0.5px] text-[#ADADAD] transition-colors duration-200 [font-optical-sizing:auto] [font-variation-settings:'GRAD'_25,'ROND'_4,'opsz'_18] hover:text-[#2d2d2d]"
+            >
+              Início
+            </button>
+          </li>
 
-        <div className="flex items-center justify-center gap-5 text-[#6f7481]">
-          <a
-            href="https://wa.me/5553999255355"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="cursor-pointer text-lg transition-all duration-200 hover:-translate-y-px hover:font-bold hover:text-[#25D366]"
-            aria-label="Suporte WhatsApp"
-          >
-            WhatsApp
-          </a>
+          <li className="flex h-full items-center justify-center border-l border-[#F3F3F3]">
+            <button
+              type="button"
+              className="font-google-sans-flex flex h-full cursor-pointer items-center justify-center px-4 text-[16px] leading-4 font-normal tracking-[0.5px] text-[#ADADAD] transition-colors duration-200 [font-optical-sizing:auto] [font-variation-settings:'GRAD'_25,'ROND'_4,'opsz'_18] hover:text-[#2d2d2d]"
+            >
+              Aulas
+            </button>
+          </li>
 
-          <a
-            href="https://www.instagram.com/cimbre.co/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-          >
-            <FaInstagram
-              size={26}
-              className="cursor-pointer transition-all duration-200 hover:-translate-y-px hover:text-[#D400C5]"
-            />
-          </a>
-        </div>
+          <li className="flex h-full items-center justify-center border-l border-[#F3F3F3]">
+            <button
+              type="button"
+              className="font-google-sans-flex flex h-full cursor-pointer items-center justify-center px-4 text-[16px] leading-4 font-normal tracking-[0.5px] text-[#ADADAD] transition-colors duration-200 [font-optical-sizing:auto] [font-variation-settings:'GRAD'_25,'ROND'_4,'opsz'_18] hover:text-[#2d2d2d]"
+            >
+              Preço
+            </button>
+          </li>
+
+          <li className="flex h-full items-center justify-center border-l border-[#F3F3F3]">
+            <button
+              type="button"
+              className="font-google-sans-flex flex h-full cursor-pointer items-center justify-center px-4 text-[16px] leading-4 font-normal tracking-[0.5px] text-[#ADADAD] transition-colors duration-200 [font-optical-sizing:auto] [font-variation-settings:'GRAD'_25,'ROND'_4,'opsz'_18] hover:text-[#2d2d2d]"
+            >
+              Dúvidas
+            </button>
+          </li>
+        </ul>
       </nav>
     </motion.nav>
   );

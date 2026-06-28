@@ -2,7 +2,7 @@ import { Badge } from "../../components/badge";
 import { DashedDivider } from "../../components/dasheddivider";
 import LocalStorageLpRegister from "../../components/localstoragelpregister";
 import BaseContent from "../../components/paragraph";
-import TextWrapper from "./components/textwrapper";
+import TextWrapper from "../../components/textwrapper";
 import { Title } from "../../components/title";
 import LessonBlock from "./components/lessonblock";
 import CallToAction from "../../components/calltoaction";
@@ -44,7 +44,7 @@ export default function LandingPageOne() {
   return (
     <>
       <LocalStorageLpRegister lpId={"lp-1"} />
-      <div className="flex w-full flex-col bg-[#F8FCFF]">
+      <div className="flex w-full flex-col bg-[#F8FCFF] pt-32.5">
         <div className="flex h-full w-full flex-col items-center justify-center px-4">
           <TextWrapper>
             <Title className="mb-7 text-[52px]">

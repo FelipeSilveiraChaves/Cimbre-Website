@@ -7,7 +7,7 @@ export default function SiteLayout({
 }) {
   return (
     <div className="flex min-h-full w-full flex-1 flex-col overflow-x-hidden bg-[#F8FCFF]">
-      <main className="flex w-full flex-1 justify-center">{children}</main>
+      <main className="flex w-full flex-1 justify-center pt-32.5">{children}</main>
       <Footer variant="light" />
     </div>
   );
