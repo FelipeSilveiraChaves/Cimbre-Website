@@ -63,7 +63,7 @@ export default function CtaButton({
         <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[8px]">
           <BorderBeam
             lightWidth={80}
-            borderWidth={2.5}
+            borderWidth={1.5}
             duration={2}
             lightColor={beamColor}
             className={cn(beamBorder, "opacity-100")}
