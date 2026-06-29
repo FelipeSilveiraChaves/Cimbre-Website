@@ -16,7 +16,7 @@ const faqs: FaqItemData[] = [
     question:
       "Já tentei me organizar mil vezes e nunca durou. Por que agora seria diferente?",
     answer:
-      "Provavelmente porque o que você tentou antes era complicado demais. A maior parte dos métodos pede planilha, app cheio de função e uma disciplina que ninguém sustenta por muito tempo. Nosso método vai no caminho contrário: três ferramentas simples e dois rituais curtos, simples o bastante pra você não largar na segunda semana. A simplicidade não é um detalhe do método — é o método.",
+      "Provavelmente porque o que você tentou antes era complicado demais. A maior parte dos métodos pede planilha, app cheio de função e uma disciplina que ninguém sustenta por muito tempo. Nosso método vai no caminho contrário: três ferramentas simples e dois rituais curtos, simples o bastante para você não largar na segunda semana. A simplicidade não é um detalhe do método — é o método.",
   },
   {
     question: "Preciso acordar às 5h ou virar uma pessoa super disciplinada?",
@@ -31,27 +31,27 @@ const faqs: FaqItemData[] = [
   {
     question: "Preciso pagar por algum aplicativo?",
     answer:
-      "Não. Dá pra fazer tudo com ferramentas gratuitas. As que recomendamos no curso não custam nada pra usar no dia a dia.",
+      "Não. Dá para fazer tudo com ferramentas gratuitas. As que recomendamos no curso não custam nada para usar no dia a dia.",
   },
   {
     question: "E se eu preferir papel a aplicativos?",
     answer:
-      "Dá pra usar papel em boa parte do método — o Bloco de Notas, inclusive, a gente prefere no papel. A Agenda também funciona, com algumas ressalvas. Só a Lista de Tarefas pede mesmo uma ferramenta digital, e a aula explica direitinho por quê.",
+      "Dá para usar papel em boa parte do método — o Bloco de Notas, inclusive, a gente prefere no papel. A Agenda também funciona, com algumas ressalvas. Só a Lista de Tarefas pede mesmo uma ferramenta digital, e a aula explica direitinho o por quê.",
   },
   {
-    question: "Quanto tempo leva pra fazer o curso?",
+    question: "Quanto tempo leva para fazer o curso?",
     answer:
       "A leitura completa leva entre uma hora e uma hora e meia, dependendo do seu ritmo. Mas cada aula termina com exercícios práticos, então o ideal é ir aplicando conforme avança — sem pressa de terminar tudo de uma vez.",
   },
   {
     question: "Vou ter ajuda se travar em alguma parte?",
     answer:
-      "Sim. Comprando agora, você tem 365 dias de acompanhamento — nesse período, a nossa equipe fica à disposição pra ajudar você a aplicar o método na prática. É só chamar.",
+      "Sim. Comprando agora, você tem 365 dias de acompanhamento — nesse período, a nossa equipe fica à disposição para ajudar você a aplicar o método na prática. É só chamar.",
   },
   {
-    question: "E se eu comprar e não for pra mim?",
+    question: "E se eu comprar e não for para mim?",
     answer:
-      "Sem problema. Você tem 7 dias pra ler, testar e decidir. Se não for o que esperava, devolvemos 100% do valor, sem burocracia.",
+      "Sem problema. Você tem 7 dias para ler, testar e decidir. Se não for o que esperava, devolvemos 100% do valor, sem burocracia.",
   },
 ];
 
