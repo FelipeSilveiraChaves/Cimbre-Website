@@ -21,43 +21,44 @@ const lessons: Lesson[] = [
   },
   {
     badge: "Aula 2",
-    title: "Bloco de Notas e Pensamentos Acionáveis.",
+    title: "Bloco de Notas & Pensamentos Acionáveis.",
     items: [
-      // TODO: substituir pelos tópicos reais desta aula
-      "Aprenda à escrever compromissos de forma efetiva e longo prazo.",
+      "Aprenda o que são os “Pensamentos Acionáveis” e por que a sua mente não foi feita para guardá-los.",
     ],
   },
   {
     badge: "Aula 3",
     title: "Agenda & Atividades Obrigatórias.",
     items: [
-      "Aprenda à escrever compromissos de forma efetiva e longo prazo.",
-      "Aprenda como criar etiquetas de forma clara e não por intuição.",
-      "Aprenda à escrever compromissos de forma efetiva e longo prazo.",
+      "Aprenda a diferença entre “Atividades Obrigatórias Participativas e Informativas” e como organizar a Agenda em cima delas.",
+      "Aprenda como escrever compromissos do jeito certo: título curto, descrição cheia de informação útil.",
+      "Aprenda por que dividir o calendário em apenas duas cores é o que impede você de largar a Agenda em uma semana.",
     ],
   },
   {
     badge: "Aula 4",
     title: "Listas de Tarefas & Atividades Opcionais.",
     items: [
-      // TODO: substituir pelos tópicos reais desta aula
-      "Aprenda à escrever compromissos de forma efetiva e longo prazo.",
+      "Aprenda o que são as Atividades Opcionais e como organizar a Lista de Tarefas em cima delas.",
+      "Aprenda por que três listas (curto prazo, longo prazo e delegadas) bastam para dar conta de tudo.",
+      "Aprenda como escrever tarefas do jeito certo, sem criar urgências que não existem.",
     ],
   },
   {
     badge: "Aula 5",
     title: "Ritual Semanal, Bloqueios de Tempo e Controle de Energia.",
     items: [
-      // TODO: substituir pelos tópicos reais desta aula
-      "Aprenda à escrever compromissos de forma efetiva e longo prazo.",
+      "Aprenda a trazer significado à sua semana com o conceito de Semana Ideal.",
+      "Aprenda a dar forma à semana usando a Agenda, as Atividades Obrigatórias e as Agendas Externas.",
+      "Aprenda como bloquear tempo na Agenda de um jeito que funcione de verdade.",
     ],
   },
   {
     badge: "Aula 6",
     title: "Ritual Diário & Pirâmide de Execução Diária",
     items: [
-      // TODO: substituir pelos tópicos reais desta aula
-      "Aprenda à escrever compromissos de forma efetiva e longo prazo.",
+      "Aprenda a conduzir o dia obedecendo à Agenda, com a Pirâmide de Execução.",
+      "Aprenda a aproveitar os intervalos de tempo para adiantar tarefas.",
     ],
   },
   {

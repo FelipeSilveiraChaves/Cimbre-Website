@@ -34,8 +34,8 @@ export default function LandingPageTwo() {
               organizado!
             </Title>
             <Subtitle className="my-5">
-              Aprenda a usar uma agendas, listas de tarefas e blocos de notas
-              para controlar a sua vida.
+              Aprenda a controlar a sua vida com uma Agenda, um Bloco de Notas e
+              uma Lista de Tarefas.
             </Subtitle>
             <div className="flex gap-2">
               <CtaButton variant="primary" borderBeam targetId="preco" />
@@ -72,11 +72,12 @@ export default function LandingPageTwo() {
             />
             {/* imagem -> título: 16px */}
             <Title as="h2" className="mt-3">
-              Conteúdos.
+              Conteúdo.
             </Title>
             {/* título -> frase: 20px */}
             <Subtitle className="mt-5 mb-5">
-              São sete aulas diretas ao ponto para você aplicar hoje mesmo.
+              Ensinamos tudo a você em apenas 7 aulas rápidas e ricas em
+              informação.
             </Subtitle>
             <div className="mb-4 flex gap-2">
               <CtaButton
@@ -125,8 +126,8 @@ export default function LandingPageTwo() {
           />
           <Title as="h2">Dúvidas?</Title>
           <Subtitle className="my-5">
-            São sete aulas curtas e diretas ao ponto para você aplicar hoje
-            mesmo.
+            Caso ainda tenha dúvidas, leia a seção abaixo ou entre em contato
+            com nossa equipe de suporte.
           </Subtitle>
           <div className="mb-6 flex gap-2">
             <CtaButton

@@ -6,10 +6,10 @@ import IniciarButton from "./iniciarButton";
 const lessons: string[] = [
   "Aula de abertura",
   "Aula sobre Agendas",
-  "Aula sobre Lista de Tarefas",
-  "Aula sobre Bloco de Notas",
+  "Aula sobre Listas de Tarefas",
+  "Aula sobre Blocos de Notas",
   "Aula sobre Planejamento Semanal",
-  "Aula sobre Ações diárias",
+  "Aula sobre Execução Diária",
   "Aula de revisão",
 ];
 
@@ -24,13 +24,13 @@ const bonuses: Bonus[] = [
     icon: MdOutlineSupportAgent,
     title: "Suporte de 365 dias",
     description:
-      "Comprando agora, você garante um acompanhamento personalizado de 365 dias. Durante esse tempo, nossa equipe estará a disposição para ajudar você a aplicar o conteúdo na prática.",
+      "Comprando agora, você garante 365 dias de acompanhamento personalizado. Durante esse período, a nossa equipe fica à disposição para ajudar você a aplicar o método na prática.",
   },
   {
     icon: MdOutlineAllInclusive,
     title: "Acesso vitalício",
     description:
-      "Este produto passará por uma grande atualização em breve, o que nos forçará a aumentar o preço. Comprando agora, você garante acesso a essa e as demais atualizações de graça, para sempre!",
+      "Este produto vai passar por uma grande atualização em breve, e o preço vai subir junto. Comprando agora, você garante essa e todas as próximas atualizações de graça, para sempre.",
   },
 ];
 
@@ -79,8 +79,8 @@ export default function CallToActionLp2() {
             Invista em você!
           </h3>
           <p className="mb-6 font-normal text-[#8F9091]">
-            São sete aulas curtas e diretas ao ponto para você aplicar hoje
-            mesmo.
+            Não existem muitos cursos falando sobre isso por aí. Então não deixe
+            essa oportunidade passar.
           </p>
 
           <ul className="flex w-full flex-col">
@@ -152,7 +152,7 @@ export default function CallToActionLp2() {
               Garantia de 7 dias
             </span>
             <p className="text-[14px] leading-5 font-normal tracking-[3%] text-[#8F9091]">
-              Comprou, leu e não era pra você? É só pedir o reembolso dentro de
+              Comprou e não era o que esperava? É só pedir o reembolso dentro de
               7 dias e devolvemos 100% do valor. Sem burocracia.
             </p>
           </div>

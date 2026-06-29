@@ -13,34 +13,45 @@ type FaqItemData = {
 // 👇 Edite aqui as perguntas e respostas. Adicione/remova quantas quiser.
 const faqs: FaqItemData[] = [
   {
-    question: "O método funciona em qualquer tipo de aplicativo?",
+    question:
+      "Já tentei me organizar mil vezes e nunca durou. Por que agora seria diferente?",
     answer:
-      // TODO: substituir pela resposta real
-      "Sim. O método é baseado em princípios de organização que você aplica em qualquer agenda, bloco de notas ou app de tarefas que já usa.",
+      "Provavelmente porque o que você tentou antes era complicado demais. A maior parte dos métodos pede planilha, app cheio de função e uma disciplina que ninguém sustenta por muito tempo. Nosso método vai no caminho contrário: três ferramentas simples e dois rituais curtos, simples o bastante pra você não largar na segunda semana. A simplicidade não é um detalhe do método — é o método.",
   },
   {
-    question: "Preciso ter experiência prévia com produtividade?",
+    question: "Preciso acordar às 5h ou virar uma pessoa super disciplinada?",
     answer:
-      // TODO: substituir pela resposta real
-      "Não. O curso começa do zero e te guia passo a passo, mesmo que você nunca tenha usado nenhuma ferramenta antes.",
+      "Não, e essa é justamente a ideia. O nosso método não tem nada a ver com acordar de madrugada, força de vontade ou rotina de CEO. O método funciona porque é leve — controlar o próprio tempo deveria ser tão natural quanto respirar, não mais um peso na sua rotina.",
   },
   {
-    question: "Quanto tempo leva para concluir o curso?",
+    question: "Funciona com o aplicativo que eu já uso?",
     answer:
-      // TODO: substituir pela resposta real
-      "São sete aulas curtas e diretas ao ponto. Dá para assistir tudo em poucas horas e já começar a aplicar hoje mesmo.",
+      "Funciona. O método não depende de nenhum app específico — a lógica é a mesma em qualquer um. A gente recomenda o Todoist para a Lista de Tarefas e o calendário do seu celular para a Agenda, mas, se você já tem as suas ferramentas, é só aplicar o que ensinamos nelas.",
   },
   {
-    question: "Por quanto tempo tenho acesso?",
+    question: "Preciso pagar por algum aplicativo?",
     answer:
-      // TODO: substituir pela resposta real
-      "O acesso é vitalício. Você pode rever as aulas quantas vezes quiser, quando quiser.",
+      "Não. Dá pra fazer tudo com ferramentas gratuitas. As que recomendamos no curso não custam nada pra usar no dia a dia.",
   },
   {
-    question: "Como recebo o acesso após a compra?",
+    question: "E se eu preferir papel a aplicativos?",
     answer:
-      // TODO: substituir pela resposta real
-      "Logo após a confirmação do pagamento você recebe o acesso por e-mail e já pode começar imediatamente.",
+      "Dá pra usar papel em boa parte do método — o Bloco de Notas, inclusive, a gente prefere no papel. A Agenda também funciona, com algumas ressalvas. Só a Lista de Tarefas pede mesmo uma ferramenta digital, e a aula explica direitinho por quê.",
+  },
+  {
+    question: "Quanto tempo leva pra fazer o curso?",
+    answer:
+      "A leitura completa leva entre uma hora e uma hora e meia, dependendo do seu ritmo. Mas cada aula termina com exercícios práticos, então o ideal é ir aplicando conforme avança — sem pressa de terminar tudo de uma vez.",
+  },
+  {
+    question: "Vou ter ajuda se travar em alguma parte?",
+    answer:
+      "Sim. Comprando agora, você tem 365 dias de acompanhamento — nesse período, a nossa equipe fica à disposição pra ajudar você a aplicar o método na prática. É só chamar.",
+  },
+  {
+    question: "E se eu comprar e não for pra mim?",
+    answer:
+      "Sem problema. Você tem 7 dias pra ler, testar e decidir. Se não for o que esperava, devolvemos 100% do valor, sem burocracia.",
   },
 ];
 
