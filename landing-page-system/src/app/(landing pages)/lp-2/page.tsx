@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import LocalStorageLpRegister from "../../components/localstoragelpregister";
 import ViewOfferTrigger from "../../components/ViewOfferTrigger";
 import TextWrapper from "../../components/textwrapper";
@@ -9,6 +10,10 @@ import CtaButton from "./components/ctabutton";
 import Lessons from "./components/lessons";
 import Faq from "./components/faq";
 import CallToActionLp2 from "./components/callToActionLp2";
+
+export const metadata: Metadata = {
+  title: "Cimbre - P1C2",
+};
 
 export default function LandingPageTwo() {
   return (
